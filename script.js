@@ -48,12 +48,14 @@ function playGame()
     for(let i = 0; i < 5; i++)
     {
         let input = prompt("Enter rock, paper or scissors");
-        
-        while(input != choices.at(0) && input != choices.at(1) && input != choices.at(2))
-        {
+                    
+        while(input != null && input != choices.at(0) && input != choices.at(1) && input != choices.at(2))
+        {                
             input = prompt("Wrong input!\nOnly enter rock, paper or scissors");
         }
-
+            
+        if(input === null)
+            return;
         const out = checkForWin(input, getComputerChoice());
 
         console.log(out);
