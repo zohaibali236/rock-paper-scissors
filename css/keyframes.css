@@ -1,0 +1,50 @@
+@keyframes glow_box {
+    from {
+      box-shadow: 
+          0 0 0.625px #fff,
+          0 0 1.25px #fff,
+          0 0 2.5px limegreen,
+          0 0 5px limegreen,
+          0 0 10px limegreen,
+          0 0 20px limegreen,
+          0 0 30px limegreen
+      ;
+    }
+    to {
+      box-shadow:
+          0 0 2.5px #fff,
+          0 0 5px limegreen,
+          0 0 10px limegreen,
+          0 0 20px limegreen,
+          0 0 30px limegreen,
+          0 0 40px limegreen,
+          0 0 50px limegreen
+      ;
+    }
+}
+
+@keyframes glow {
+    from {
+      text-shadow: 
+          0 0 2.5px #fff,
+          0 0 5px #fff,
+          0 0 10px limegreen,
+          0 0 20px limegreen,
+          0 0 30px limegreen,
+          0 0 40px limegreen,
+          0 0 50px limegreen
+      ;
+    }
+    to {
+      text-shadow:
+          0 0 10px #fff,
+          0 0 20px limegreen,
+          0 0 30px limegreen,
+          0 0 40px limegreen,
+          0 0 50px limegreen,
+          0 0 60px limegreen,
+          0 0 70px limegreen
+      ;
+    }
+}
+  
