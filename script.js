@@ -76,7 +76,7 @@ function playGame(input)
 
     if(rounds === maxRounds)
     {
-        // btns.forEach((btn) => {btn.disabled = true})
+        btns.forEach((btn) => {btn.disabled = true})
 
 
         if(+score[0].textContent > +score[1].textContent)
@@ -116,14 +116,14 @@ const header = document.createElement("header");
 const h1 = document.createElement("h1");
 
 
-header.className = "text-glow flex center-both";
+header.className = "flex center-both";
 h1.textContent = "Rock, Paper, Scissors";
 header.appendChild(h1);
 
 const roundsDiv = document.createElement("div");
 const roundsP = document.createElement("p");
 
-roundsDiv.className = "rounds text-glow flex center-both";
+roundsDiv.className = "rounds flex center-both";
 roundsP.textContent = "Round 0";
 roundsDiv.appendChild(roundsP);
 
@@ -146,13 +146,11 @@ humanSelectionDiv.appendChild(imageContainer);
 const human = document.createElement("p");
 
 human.textContent = "You";
-human.className = "text-glow";
 human.style.margin = 0;
 humanSelectionDiv.appendChild(human);
 
 const score = document.createElement("p");
 score.textContent = "0";
-score.className = "text-glow";
 score.style.marginTop = "10px";
 humanSelectionDiv.appendChild(score);
 
@@ -163,7 +161,6 @@ computerSelectionDiv.appendChild(imageContainer.cloneNode(true));
 computerSelectionDiv.className = "selected";
 
 const computer = document.createElement("p");
-computer.className = "text-glow";
 computer.textContent = "Computer";
 computer.style.margin = 0;
 
@@ -184,7 +181,6 @@ const weaponChoices = document.createElement("div");
 const weaponChoicesP = document.createElement("div");
 
 
-weaponChoicesP.classList.add("text-glow")
 weaponChoicesP.style.marginTop = "15vh";
 weaponChoicesP.style.marginLeft = "15vw";
 weaponChoicesP.style.fontSize = "32px";
@@ -217,6 +213,7 @@ paper.appendChild(paperImg);
 scissors.appendChild(scissorsImg);
 
 optionsContainer.className = "flex center-both";
+optionsContainer.id = "options";
 
 optionsContainer.style.gap = "30px";
 
@@ -229,7 +226,7 @@ main.appendChild(weaponChoices);
 
 
 const footer = document.createElement("footer");
-footer.className = "flex center-both";
+// footer.className = "flex center-both";
 footer.innerHTML = "Copyright &copy; Project by Zohaib Ali, 2023 "
 
 
@@ -238,7 +235,7 @@ document.body.appendChild(main);
 document.body.appendChild(footer);
 
 
-const btns = document.querySelectorAll("button");
+const btns = document.querySelectorAll("#options > button");
 
 
 
@@ -250,8 +247,31 @@ btns.forEach((btn) => {
     })
 });
 
-btns[0].disabled = false;
 
-btns[0].addEventListener("click", () => {
+const modalBtn = document.querySelector(".modal button");
+
+modalBtn.addEventListener("click", () => {
     location.reload();
+});
+
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        const circle = document.createElement("span");
+        const diameter = Math.max(btn.clientWidth, btn.clientHeight);
+        const radius = diameter/2;
+
+        circle.style.width = circle.style.height = `${diameter}px`;
+        circle.style.left = `${e.clientX - (btn.offsetLeft + radius)}px`;
+        circle.style.top = `${e.clientY - (btn.offsetTop + radius)}px`;
+
+        circle.className = "ripple";
+
+                
+        btn.appendChild(circle);
+        
+        circle.addEventListener("animationend", () => btn.removeChild(circle));
+    });
 });

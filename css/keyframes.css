@@ -1,4 +1,4 @@
-@keyframes glow_box {
+@keyframes glow {
     from {
       box-shadow: 
           0 0 0.625px #fff,
@@ -23,28 +23,9 @@
     }
 }
 
-@keyframes glow {
-    from {
-      text-shadow: 
-          0 0 2.5px #fff,
-          0 0 5px #fff,
-          0 0 10px limegreen,
-          0 0 20px limegreen,
-          0 0 30px limegreen,
-          0 0 40px limegreen,
-          0 0 50px limegreen
-      ;
-    }
-    to {
-      text-shadow:
-          0 0 10px #fff,
-          0 0 20px limegreen,
-          0 0 30px limegreen,
-          0 0 40px limegreen,
-          0 0 50px limegreen,
-          0 0 60px limegreen,
-          0 0 70px limegreen
-      ;
-    }
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
-  
